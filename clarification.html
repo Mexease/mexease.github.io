@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loop's Notebook - Ideation Tools</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+  <style>
+    body {
+      background-image: url('https://i.postimg.cc/bNQp0RDW/1.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      margin: 0;
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.7) !important;
+    }
+
+    .navbar-light .navbar-brand,
+    .navbar-light .navbar-nav .nav-link {
+      color: white;
+    }
+
+    .about-section {
+      padding: 100px 0;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .about-section h1 {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    #tool-buttons .btn {
+      margin: 5px;
+    }
+
+    #tool-info {
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 1.15rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Loop's Notebook</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="Ideation.html">Ideation Tools</a></li>
+          <li class="nav-item"><a class="nav-link" href="Pressdevelop.html">Press Develop Tools</a></li>
+          <li class="nav-item"><a class="nav-link" href="clarification.html">Clarification</a></li>
+          <li class="nav-item"><a class="nav-link" href="other.html">Other</a></li>
+          <li class="nav-item"><a class="nav-link" href="thehats.html">The Hats</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="about-section text-center">
+    <h1>Clarification tools</h1>
+
+    <div id="tool-buttons" class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="storyboarding">Storyboarding</button></div>
+        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="richPicture">Rich Picture</button></div>
+        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="scenario">Scenario</button></div>
+        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="flowchart">Flowchart</button></div>
+      </div>
+    </div>
+
+    <!-- This is where the description will be shown -->
+    <div id="tool-info" class="container text-center"></div>
+  </div>
+
+  <!-- jQuery and Bootstrap Bundle -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+<script>
+  const toolDescriptions = {
+  storyboarding: "Storyboarding is a technique for visually laying out how a user interacts with a product or service over time. By creating a sequence of illustrated frames or moments, it allows teams to explore the user’s journey, including emotions, decisions, pain points, and outcomes. Storyboards help bring abstract ideas to life, making it easier to empathize with users and identify areas of improvement within an experience. They are particularly effective when mapping out complex interactions or envisioning new features before development begins. Storyboarding also helps teams align on user expectations and explore multiple use cases or narratives in parallel. By visualizing user scenarios, it uncovers potential usability issues and reveals how design choices affect the overall user experience. Teams can then iterate on the concept in a collaborative, creative way before moving into detailed design or prototyping stages.",
+
+  richPicture: "A Rich Picture is a hand-drawn, unstructured diagram used to explore messy or complex situations. It visually represents systems, stakeholders, emotions, and interactions in a single picture. This tool is ideal for capturing the 'big picture' of a problem, especially when there are multiple perspectives, uncertainties, or conflicting interests involved. It fosters discussion, understanding, and alignment across disciplines. Unlike structured diagrams, rich pictures are meant to be expressive and flexible, allowing the inclusion of metaphors, symbols, and non-linear relationships. They are particularly useful in early problem exploration when the situation is not yet well-defined. Rich pictures help make hidden assumptions visible and allow different stakeholders to see how their roles and concerns fit into the larger system. As a result, they support more holistic and inclusive decision-making.",
+
+  scenario: "Scenario building involves crafting detailed, hypothetical stories that describe how a user might interact with a problem or solution in a realistic setting. These narratives consider motivations, contexts, goals, and constraints. Scenarios are great for grounding abstract ideas in human behavior, revealing edge cases, and preparing teams to think empathetically and practically about user needs and system design. They often highlight different personas, environments, and usage conditions, helping uncover variations in behavior that might otherwise be overlooked. Scenarios encourage teams to think beyond the average user and address a wide range of interactions and challenges. They can also serve as communication tools between designers, developers, and stakeholders, ensuring everyone understands the user journey from a narrative point of view. Ultimately, scenarios make it easier to design products that feel intuitive and responsive to real-world use.",
+
+  flowchart: "A Flowchart is a visual representation of a process, decision path, or system logic using shapes like arrows, diamonds, and boxes. It clarifies the step-by-step sequence of actions or choices in a system, helping teams identify redundancies, inefficiencies, or gaps in logic. Flowcharts are excellent for understanding workflows, explaining algorithms, or planning the structure of a digital or physical experience. They simplify communication by offering a shared visual language that’s easy to follow across different roles. Teams can use flowcharts to document current processes or design new ones, making them invaluable for troubleshooting and optimization. They are also highly adaptable—useful for software architecture, customer support processes, user onboarding flows, or decision-making frameworks. By laying out all possible outcomes and pathways, flowcharts reduce ambiguity and ensure logical consistency across complex systems."
+};
+
+
+    $(document).ready(function() {
+      $("#tool-buttons button").click(function() {
+        const selectedTool = $(this).data("tool");
+        const description = toolDescriptions[selectedTool] || "Description not found.";
+
+        $("#tool-info").fadeOut(200, function() {
+          $(this).html(description).fadeIn(400);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loop's Notebook - Ideation Tools</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+  <style>
+    body {
+      background-image: url('https://i.postimg.cc/0y2F6Gpp/3.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      margin: 0;
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.7) !important;
+    }
+
+    .navbar-light .navbar-brand,
+    .navbar-light .navbar-nav .nav-link {
+      color: white;
+    }
+
+    .about-section {
+      padding: 100px 0;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .about-section h1,
+    .about-section h2 {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .about-block {
+      margin-bottom: 60px;
+    }
+
+    .about-img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    #tool-buttons .btn {
+      margin: 5px;
+    }
+
+    #tool-info {
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 1.15rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Loop's Notebook</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="Ideation.html">Ideation Tools</a></li>
+          <li class="nav-item"><a class="nav-link" href="Pressdevelop.html">Press Develop Tools</a></li>
+          <li class="nav-item"><a class="nav-link" href="clarification.html">Clarification</a></li>
+          <li class="nav-item"><a class="nav-link" href="other.html">Other</a></li>
+          <li class="nav-item"><a class="nav-link" href="thehats.html">The Hats</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="about-section text-center">
+    <h1>Ideation Tools</h1>
+    <div class="container">
+      <div class="btn-group mb-4" role="group" id="tool-buttons">
+        <button class="btn btn-outline-light" data-tool="greatIdeas">How to look for great ideas</button>
+        <button class="btn btn-outline-light" data-tool="reverse">Reverse Brainstorm</button>
+        <button class="btn btn-outline-light" data-tool="c4">C4 Brainstorming</button>
+        <button class="btn btn-outline-light" data-tool="random">Random Entry</button>
+        <button class="btn btn-outline-light" data-tool="lotus">Lotus Blossom</button>
+        <button class="btn btn-outline-light" data-tool="provocation">Provocation</button>
+        <button class="btn btn-outline-light" data-tool="scamper">Scamper</button>
+      </div>
+
+      <div id="tool-info" class="mt-4" style="display: none;"></div>
+    </div>
+  </div>
+
+  <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    const toolDescriptions = {
+      greatIdeas: "Great ideas often begin with observing the world around you—watch how people interact with products, services, and environments. Listen to complaints, notice inefficiencies, and ask “what if?” Great ideas solve real problems or tap into unmet needs. Look outside your field for inspiration; sometimes the best innovations are crossovers from unrelated industries. Stay curious, open-minded, and willing to explore odd or unconventional paths. Great ideas aren’t just about originality—they’re about relevance, value, and the ability to create meaningful change for people or systems.",
+      reverse: "Reverse brainstorming turns traditional problem-solving on its head. Instead of asking, “How do we solve this?” you ask, “How could we cause this problem?” or “How could we make it worse?” This unexpected approach reveals vulnerabilities, hidden assumptions, and overlooked areas. Once harmful actions are identified, you reverse them to brainstorm potential solutions or improvements. It’s especially useful when standard brainstorming hits a wall. By flipping the perspective, reverse brainstorming exposes blind spots and forces creative thinking in areas that may otherwise be ignored.",
+      c4: "C4 stands for Customer, Company, Competition, and Context—a framework to generate well-rounded ideas. Each “C” provides a different lens. Think from the Customer’s point of view: what do they need or struggle with? From the Company angle: what are your strengths, values, or limitations? For Competition: what are others doing, and how can you do it differently or better? And finally, Context involves broader factors like trends, technologies, or culture. C4 brainstorming encourages teams to explore multiple perspectives for deeper, more relevant innovations.",
+      random: "Random Entry is a lateral thinking technique that injects unpredictability into your ideation process. You introduce a random word, image, or object unrelated to your problem—then force connections. For example, if you're designing a new app and the word is “umbrella,” you might explore ideas like protection, portability, or coverage. This breaks fixed patterns of thought and encourages unexpected associations. Random entry is useful when you're stuck in a creative rut or need to shift your mindset. It stimulates originality by prompting your brain to make new, unconventional links.",
+      lotus: "The Lotus Blossom technique helps expand ideas visually and systematically. You start with a core idea in the center of a grid and surround it with eight related concepts. Then, each of those becomes a new center, with its own eight branches. Like a flower blooming, your ideas radiate outward in layers. This structured approach helps you delve deeper into subtopics, discover connections, and uncover new directions. It’s ideal for exploring complex challenges where a single perspective isn’t enough, and works well for both individuals and groups.",
+      provocation: "Provocation is about challenging norms by making bold or even absurd statements—then using them to spark new thinking. For example, say “What if phones had no screens?” This may sound ridiculous, but it forces you to rethink communication methods. The goal isn’t to implement the provocation, but to use it as a launchpad for novel ideas. This technique, popularized by Edward de Bono, helps break mental ruts and encourages unconventional exploration. It thrives on imagination, pushing you beyond the obvious to discover what’s possible when you let go of “rules.",
+      scamper: "SCAMPER is an acronym for a set of creative prompts: Substitute, Combine, Adapt, Modify, Put to another use, Eliminate, and Reverse. Each prompt helps you reimagine an existing product, process, or idea. For instance, you might ask, “What can we eliminate to make this simpler?” or “How can we adapt this for another audience?” SCAMPER works because it provides a consistent, actionable structure for ideation. It doesn’t require a blank slate—instead, it improves or reinterprets what's already there. This makes it especially practical for refining ideas or driving innovation from within."
+    };
+
+    $(document).ready(function() {
+      $("#tool-buttons button").click(function() {
+        const selectedTool = $(this).data("tool");
+        const description = toolDescriptions[selectedTool];
+
+        $("#tool-info").fadeOut(200, function() {
+          $(this).html(description).fadeIn(400);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
