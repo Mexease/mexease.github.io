@@ -81,18 +81,19 @@
   </nav>
 
   <div class="about-section text-center">
-    <h1>Clarification tools</h1>
+    <h1>Clarification Tools</h1>
 
     <div id="tool-buttons" class="container">
       <div class="row justify-content-center">
-        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="storyboarding">Storyboarding</button></div>
-        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="richPicture">Rich Picture</button></div>
-        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="scenario">Scenario</button></div>
-        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="flowchart">Flowchart</button></div>
+        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="chesterton">Chesterton's Fence</button></div>
+        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="questions">100 Questions</button></div>
+        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="journey">Journey Map</button></div>
+        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="assumption">Assumption Listing</button></div>
+        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="landscaping">Landscaping</button></div>
+        <div class="col-md-3 mb-2"><button class="btn btn-outline-light btn-block" data-tool="askwhy">Ask Why</button></div>
       </div>
     </div>
 
-    <!-- This is where the description will be shown -->
     <div id="tool-info" class="container text-center"></div>
   </div>
 
@@ -101,30 +102,70 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom JavaScript -->
-<script>
-  const toolDescriptions = {
-  storyboarding: "Storyboarding is a technique for visually laying out how a user interacts with a product or service over time. By creating a sequence of illustrated frames or moments, it allows teams to explore the user’s journey, including emotions, decisions, pain points, and outcomes. Storyboards help bring abstract ideas to life, making it easier to empathize with users and identify areas of improvement within an experience. They are particularly effective when mapping out complex interactions or envisioning new features before development begins. Storyboarding also helps teams align on user expectations and explore multiple use cases or narratives in parallel. By visualizing user scenarios, it uncovers potential usability issues and reveals how design choices affect the overall user experience. Teams can then iterate on the concept in a collaborative, creative way before moving into detailed design or prototyping stages.",
+  <script>
+    const toolDescriptions = {
+      chesterton: `<strong>Chesterton's Fence</strong><br>
+        Chesterton’s Fence is a simple rule for problem-solving. It comes from writer G.K. Chesterton, who tells the story of a man who sees a fence and doesn’t understand why it’s there. Before removing it, he must first figure out its purpose—otherwise, he might cause more harm than good. This idea reminds us to understand why something exists before making changes.`,
 
-  richPicture: "A Rich Picture is a hand-drawn, unstructured diagram used to explore messy or complex situations. It visually represents systems, stakeholders, emotions, and interactions in a single picture. This tool is ideal for capturing the 'big picture' of a problem, especially when there are multiple perspectives, uncertainties, or conflicting interests involved. It fosters discussion, understanding, and alignment across disciplines. Unlike structured diagrams, rich pictures are meant to be expressive and flexible, allowing the inclusion of metaphors, symbols, and non-linear relationships. They are particularly useful in early problem exploration when the situation is not yet well-defined. Rich pictures help make hidden assumptions visible and allow different stakeholders to see how their roles and concerns fit into the larger system. As a result, they support more holistic and inclusive decision-making.",
+      questions: `<strong>100 Questions</strong><br>
+        THE 100 QUESTIONS<br>
+        Why is it important to generate a large number of questions in one sitting?<br>
+        How can unrestricted questioning spark creativity in entrepreneurship?<br>
+        What happens when you remove self-editing and allow curiosity to flow freely?<br>
+        How might listing 100 meaningful questions help you think in new ways?`,
 
-  scenario: "Scenario building involves crafting detailed, hypothetical stories that describe how a user might interact with a problem or solution in a realistic setting. These narratives consider motivations, contexts, goals, and constraints. Scenarios are great for grounding abstract ideas in human behavior, revealing edge cases, and preparing teams to think empathetically and practically about user needs and system design. They often highlight different personas, environments, and usage conditions, helping uncover variations in behavior that might otherwise be overlooked. Scenarios encourage teams to think beyond the average user and address a wide range of interactions and challenges. They can also serve as communication tools between designers, developers, and stakeholders, ensuring everyone understands the user journey from a narrative point of view. Ultimately, scenarios make it easier to design products that feel intuitive and responsive to real-world use.",
+      journey: `<strong>Journey Map</strong><br>
+        Why Journey map?<br>
+        How can I articulate someone else experience?<br>
+        How can I use Empathy to strengthen the Journey Map?<br>
+        What art the pains of this person?<br>
+        What are the gains of this person?<br>
+        Map it.`,
 
-  flowchart: "A Flowchart is a visual representation of a process, decision path, or system logic using shapes like arrows, diamonds, and boxes. It clarifies the step-by-step sequence of actions or choices in a system, helping teams identify redundancies, inefficiencies, or gaps in logic. Flowcharts are excellent for understanding workflows, explaining algorithms, or planning the structure of a digital or physical experience. They simplify communication by offering a shared visual language that’s easy to follow across different roles. Teams can use flowcharts to document current processes or design new ones, making them invaluable for troubleshooting and optimization. They are also highly adaptable—useful for software architecture, customer support processes, user onboarding flows, or decision-making frameworks. By laying out all possible outcomes and pathways, flowcharts reduce ambiguity and ensure logical consistency across complex systems."
-};
+      assumption: `<strong>Assumption Listing</strong><br>
+        First, make a 2x2 grid. On this grid are two ends: important and unimportant. Then the other two points will be known and unknown.<br>
+        List your assumptions. Then, plot your assumptions on this graph depending on how important or known they are. The ones that are very important and unknown are the ones you need to find out first.`,
 
+      landscaping: `<strong>Landscaping</strong><br>
+        What is Landscaping?<br>
+        Landscaping is part of the Clarify phase in the creative process (Clarify → Ideate → Develop → Implement). It helps you fully understand your client, their business, and their world before jumping into ideas.<br><br>
+        <strong>Purpose:</strong><br>
+        To gather useful insights and context that inspire smarter ideas.<br><br>
+        <strong>4 Steps of Landscaping:</strong><br>
+        - Understand the Client<br>
+        - Use a simple Business Model Canvas<br>
+        - Know their challenge and goals<br>
+        - Quick & Dirty (Static/Shallow Research)<br>
+        Learn the basics: industry, competitors, trends, customers, jargon, best-in-class examples.<br><br>
+        <strong>Deep Dive (Dynamic Research)</strong><br>
+        Talk to people: experts, thought leaders, and insiders.<br>
+        Find gaps, niches, hidden insights, and unique differentiators.<br><br>
+        <strong>Repeat & Check:</strong><br>
+        Go back, fill in gaps, and double-check your understanding with your client and research.<br><br>
+        <strong>Key Ideas:</strong><br>
+        Think in layers: Client at the center, then expand outward (industry, market, geography, etc.).<br>
+        Use tools like the Business Model Canvas.<br>
+        Don’t stop at surface-level info—dig deep and connect the dots.<br>
+        Creativity thrives in curiosity, conversation, and context.<br>
+        “All poodles are dogs, but not all dogs are poodles” → Journey mapping might be part of landscaping, but landscaping is much broader.`,
 
-    $(document).ready(function() {
-      $("#tool-buttons button").click(function() {
-        const selectedTool = $(this).data("tool");
-        const description = toolDescriptions[selectedTool] || "Description not found.";
+      askwhy: `<strong>Ask Why</strong><br>
+        Uncovers real needs and frustrations<br>
+        Reveals emotions and motivations behind behaviors<br>
+        Helps create solutions that truly resonate with users<br><br>
+        <em>Sample Prompts:</em><br>
+        "Can you tell me about a time when…?"<br>
+        "What was going through your mind when…?"<br>
+        "How did that experience make you feel?"<br>
+        "Can you tell me more about that?"`
+    };
 
-        $("#tool-info").fadeOut(200, function() {
-          $(this).html(description).fadeIn(400);
-        });
+    document.querySelectorAll('[data-tool]').forEach(button => {
+      button.addEventListener('click', () => {
+        const tool = button.getAttribute('data-tool');
+        document.getElementById('tool-info').innerHTML = toolDescriptions[tool];
       });
     });
   </script>
-
 </body>
 </html>
-
